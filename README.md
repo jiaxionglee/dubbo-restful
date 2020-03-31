@@ -26,7 +26,9 @@ ls /dubbo_group/com.xxx.xxx.xxxService/providers
 ##### 三、telnet测试dubbo
 ```shell script
 telnet dubbo_provider_ip dubbo_port
+# 显示服务详细信息列表
 ls -l
+# 显示服务的方法详细信息列表
 ls -l xxxService
 invoke xxxService.method
 ```
