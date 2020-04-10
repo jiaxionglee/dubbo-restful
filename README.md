@@ -22,6 +22,7 @@
 ./zkCli.sh -server zk服务地址:zk服务端口
 ls /dubbo_group/com.xxx.xxx.xxxService/providers
 # 将结果解码即可得到
+解码地址：https://www.bejson.com/enc/urlencode/
 ```
 ##### 三、telnet测试dubbo
 ```shell script
