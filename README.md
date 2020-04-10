@@ -33,3 +33,5 @@ ls -l
 ls -l xxxService
 invoke xxxService.method
 ```
+##### 四、swagger访问地址
+http://localhost:8082/doc.html?plus=1
