@@ -4,9 +4,10 @@ import com.ljx.dubbo.restful.dto.DubboDto;
 import com.ljx.dubbo.restful.service.DubboGenericService;
 import io.swagger.annotations.Api;
 import javax.annotation.Resource;
+import javax.validation.Valid;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -21,8 +22,8 @@ public class DubboConsumerController {
     @Resource
     private DubboGenericService genericService;
 
-    @RequestMapping(value = "/call", method = RequestMethod.POST)
-    public Object generalizationCall(@RequestBody DubboDto dto) {
+    @PostMapping("/call")
+    public Object generalizationCall(@RequestBody @Valid DubboDto dto) {
         return genericService.dubboGeneric(dto);
     }
 }
