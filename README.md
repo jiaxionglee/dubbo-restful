@@ -35,3 +35,10 @@ invoke xxxService.method
 ```
 ##### 四、swagger访问地址
 http://localhost:8082/doc.html?plus=1
+
+##### 五、增加查询dubbo端口的接口
+访问格式
+```
+http://localhost:8082/zk/getDubboAddress?zk=localhost:2181,localhost:2181&path=/dubbo-group/com.xxx.XXXService/providers
+http://localhost:8082/zk/getDubboAddress?zk=localhost:2181,localhost:2181&path=/dubbo-group/com.xxx.XXXService
+```
