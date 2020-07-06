@@ -3,6 +3,9 @@ package com.ljx.dubbo.restful.handler;
 import com.ljx.dubbo.restful.exception.ApiException;
 import com.ljx.dubbo.restful.exception.ResultCode;
 import com.ljx.dubbo.restful.exception.ResultVO;
+import java.util.ArrayList;
+import java.util.List;
+import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -31,6 +34,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(ConstraintViolationException.class)
     public ResultVO<String> constraintViolationExceptionHandler(ConstraintViolationException e) {
-        return new ResultVO<>(ResultCode.VALIDATE_FAILED, e.getLocalizedMessage());
+        List<ConstraintViolation<?>> errorList = new ArrayList<>(e.getConstraintViolations());
+        return new ResultVO<>(ResultCode.VALIDATE_FAILED, errorList.get(0).getMessage());
     }
 }
